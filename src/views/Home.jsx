@@ -1,14 +1,15 @@
 import React from 'react'
 import { useTheam } from '../contexts/TheamContext'
 import Navbar from '../components/Navbar'
+import Slider from '../components/Slider'
 
 const Home = () => {
 
-    let {theme} = useTheam()
 
   return (
     <div>
         <Navbar/>
+        <Slider/>
     </div>
   )
 }
