@@ -16,3 +16,10 @@ body::-webkit-scrollbar{
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  @media (min-width: 501px) and (max-width: 1000px) {
+    .bg-custom {
+      background-color: blue; /* Change this to your desired style */
+    }
+  }
+}
