@@ -6,7 +6,8 @@ export default {
   ],
   darkMode:'class',
   theme: {
-    extend: {screens: {
+    extend: {
+      screens: {
       'max-w-500': { 'max': '500px' }, 
       'sm': '501px',  
     },

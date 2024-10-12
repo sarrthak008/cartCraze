@@ -1,36 +1,31 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { useTheam } from '../contexts/TheamContext'
-
 
 const Navbar = () => {
 
-
-   const [nav,setnav] = useState(false)
-   let {theme, setTheme} = useTheam()
+  const {theme, setTheme} = useTheam()
+  const [navState,setNavState] = useState(false)
 
   return (
-     <div className='h-12 w-screen bg-slate-100 flex items-center justify-between pl-1 pr-1 md:pl-9 md:pr-9 ' >
-         <div className='text-[1.2em] font-semibold md:text-2xl'>CartCraze.</div>
-         <div className='flex  text-[1.1em] gap-7'>
-            <span><i class="ri-menu-4-fill  md:hidden cursor-pointer sm:hidden text-[1.2em] hover:text-blue-400"  onClick={()=>{setnav(true)}}></i></span>
-            <span className='cursor-pointer max-w-500:hidden  hover:text-blue-400' ><i class="ri-home-line"></i></span>
-            <span  className='cursor-pointer max-w-500:hidden  hover:text-blue-400'><i class="ri-search-line"></i></span>
-            <span  className='cursor-pointer max-w-500:hidden  hover:text-blue-400'><i class="ri-user-line"></i></span>
-            <span  className='cursor-pointer max-w-500:hidden  hover:text-blue-400'><i class="ri-shopping-cart-line"></i></span>
-            {theme === "light" ? <span  className='cursor-pointer max-w-500:hidden  hover:text-blue-400' onClick={()=>{setTheme('dark')}}><i class="ri-sun-line"></i></span> :  <span className='cursor-pointer max-w-500:hidden  hover:text-blue-400'   onClick={()=>{setTheme('light')}}><i class="ri-moon-line"></i></span>}
-        </div>
-         {nav ? <div className=' top-0 right-0 h-lvh absolute w-48 bg-slate-100 md:hidden text-[1.1em] transition ease-in-out duration-150'>
-           <div className='flex flex-col items-center justify-center h-screen w-full'>
-           <span className='block w-full text-center mb-9 cursor-pointer  hover:text-blue-400' ><i class="ri-home-line"></i> home</span>
-           <span  className='block w-full text-center mb-9 cursor-pointer  hover:text-blue-400'><i class="ri-search-line"></i> search</span>
-           <span  className='block w-full text-center mb-9 cursor-pointer  hover:text-blue-400'><i class="ri-user-line"></i> account</span>
-           <span  className='block w-full text-center cursor-pointer mb-9 hover:text-blue-400'><i class="ri-shopping-cart-line"></i> my cart</span>
-           <span className='fixed top-1 right-0 cursor-pointer text-2xl hover:text-red-600' onClick={()=>{setnav(false)}}><i class="ri-close-fill"></i></span>
-           {theme === "light" ? <span  className='block w-full text-center cursor-pointer  hover:text-blue-400' onClick={()=>{setTheme('dark')}}><i class="ri-sun-line"></i> light</span> :  <span  className='block w-full text-center cursor-pointer  hover:text-blue-400' onClick={()=>{setTheme('light')}}><i class="ri-moon-line"></i> dark</span>}
-          </div>
-       </div>:null}
-     </div>
+   <>
+   <div className='h-10 w-full bg-gray-300 flex items-center justify-between px-2 sm:px-7 z-[10] fixed top-0 left-0'>
+      <div className='font-bold text-lg'>CardCraze .</div>
+      <div className='font-bold text-xl cursor-pointer hover:scale-[1.1] hover:text-blue-400 sm:hidden' onClick={()=>{setNavState(true)}}><i class="ri-menu-3-fill"></i></div>
+      <div className='sm:flex sm:h-full sm:items-center sm:gap-6 hidden'>
+         <span className='cursor-pointer hover:text-blue-400'><i class="ri-home-2-line"></i></span>
+         <span className='cursor-pointer hover:text-blue-400'><i class="ri-search-2-line"></i></span>
+         <span className='cursor-pointer hover:text-blue-400'><i class="ri-user-line"></i></span>
+         <span className='cursor-pointer hover:text-blue-400'><i class="ri-shopping-cart-line"></i></span>
+      </div>
+   </div>
+   {navState ? <div className='h-screen w-screen bg-gray-100 flex flex-col absolute top-0 left-0 gap-5 px-6 pt-10  z-20'>
+       <div className='font-semibold flex gap-2  h-7 cursor-pointer w-full  hover:bg-violet-100 px-3  rounded '><i class="ri-home-2-line"></i> home</div>
+       <div className='font-semibold flex gap-2  h-7 cursor-pointer w-full  hover:bg-violet-100 px-3 rounded'><i class="ri-search-2-line"></i> search</div>
+       <div className='font-semibold flex gap-2  h-7 cursor-pointer w-full  hover:bg-violet-100 px-3 rounded'><i class="ri-user-line"></i> account</div>
+       <div className='font-semibold flex gap-2  h-7 cursor-pointer w-full  hover:bg-violet-100 px-3 rounded'><i class="ri-shopping-cart-line"></i> my cart</div>
+       <div className='cursor-pointer absolute top-0 right-0 mr-3 text-2xl hover:text-red-400' onClick={()=>{setNavState(false)}}><i class="ri-close-fill"></i></div>
+   </div>:null}
+   </>
   )
 }
 
