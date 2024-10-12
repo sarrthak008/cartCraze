@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
    <>
-   <div className='h-10 w-full bg-gray-300 flex items-center justify-between px-2 sm:px-7 z-[10] fixed top-0 left-0'>
+   <div className='h-10 w-full bg-gray-300 flex items-center justify-between px-2 sm:px-7 z-[10] absolute top-0 left-0'>
       <div className='font-bold text-lg'>CardCraze .</div>
       <div className='font-bold text-xl cursor-pointer hover:scale-[1.1] hover:text-blue-400 sm:hidden' onClick={()=>{setNavState(true)}}><i class="ri-menu-3-fill"></i></div>
       <div className='sm:flex sm:h-full sm:items-center sm:gap-6 hidden'>
